@@ -1,0 +1,59 @@
+{
+  "type": "wokwi-esp32",
+  "id": "esp32",
+  "top": 0,
+  "left": 0,
+  "attrs": {
+    "serialMonitor": true
+  },
+  "connections": [
+    ["esp32:PB0", "$serialMonitor:TX", ""],
+    ["esp32:PB1", "$serialMonitor:RX", ""],
+    ["esp32:GPIO32", "phSensor:Vout", ""],
+    ["esp32:GPIO33", "temperaturaSensor:Vout", ""],
+    ["esp32:GPIO34", "turbidezSensor:Vout", ""],
+    ["esp32:GPIO35", "oxigenioSensor:Vout", ""]
+  ],
+  "components": [
+    {
+      "type": "wokwi-analog-sensor",
+      "id": "phSensor",
+      "top": -200,
+      "left": -100,
+      "attrs": {
+        "label": "Sensor de pH",
+        "unit": "pH"
+      }
+    },
+    {
+      "type": "wokwi-analog-sensor",
+      "id": "temperaturaSensor",
+      "top": -150,
+      "left": -100,
+      "attrs": {
+        "label": "Sensor de Temperatura",
+        "unit": "°C"
+      }
+    },
+    {
+      "type": "wokwi-analog-sensor",
+      "id": "turbidezSensor",
+      "top": -100,
+      "left": -100,
+      "attrs": {
+        "label": "Sensor de Turbidez",
+        "unit": "NTU"
+      }
+    },
+    {
+      "type": "wokwi-analog-sensor",
+      "id": "oxigenioSensor",
+      "top": -50,
+      "left": -100,
+      "attrs": {
+        "label": "Sensor de Oxigênio Dissolvido",
+        "unit": "mg/L"
+      }
+    }
+  ]
+}
