@@ -39,11 +39,11 @@ void setup() {
 }
 
 void loop() {
-  // Ler valores dos sensores
-  int phValue = analogRead(PIN_PH);
-  int temperaturaValue = analogRead(PIN_TEMPERATURA);
-  int turbidezValue = analogRead(PIN_TURBIDEZ);
-  int oxigenioValue = analogRead(PIN_OXIGENIO);
+  // Gerar valores aleatórios para os sensores
+  int phValue = random(0, 1024);
+  int temperaturaValue = random(0, 1024);
+  int turbidezValue = random(0, 1024);
+  int oxigenioValue = random(0, 1024);
 
   // Converter valores para unidades adequadas
   float ph = phValue * 3.3 / 4095;
