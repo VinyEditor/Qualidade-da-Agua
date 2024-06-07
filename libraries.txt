@@ -1,7 +1,8 @@
 # Wokwi Library List
 # See https://docs.wokwi.com/guides/libraries
 
-WiFi
 thinger.io
-ArduinoJson
-SD
+WiFi
+ESP-WiFiSettings
+ESP-Wifi-Config
+ThingerCore32
