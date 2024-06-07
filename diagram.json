@@ -1,59 +1,42 @@
 {
-  "type": "wokwi-esp32",
-  "id": "esp32",
-  "top": 0,
-  "left": 0,
-  "attrs": {
-    "serialMonitor": true
-  },
-  "connections": [
-    ["esp32:PB0", "$serialMonitor:TX", ""],
-    ["esp32:PB1", "$serialMonitor:RX", ""],
-    ["esp32:GPIO32", "phSensor:Vout", ""],
-    ["esp32:GPIO33", "temperaturaSensor:Vout", ""],
-    ["esp32:GPIO34", "turbidezSensor:Vout", ""],
-    ["esp32:GPIO35", "oxigenioSensor:Vout", ""]
+  "version": 1,
+  "author": "Vinicius",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp32", "top": 100, "left": 150 },
+    { "type": "wokwi-resistor", "id": "res1", "top": 50, "left": 250, "rotate": 90 },
+    { "type": "wokwi-resistor", "id": "res2", "top": 100, "left": 250, "rotate": 90 },
+    { "type": "wokwi-resistor", "id": "res3", "top": 150, "left": 250, "rotate": 90 },
+    { "type": "wokwi-resistor", "id": "res4", "top": 200, "left": 250, "rotate": 90 },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 50, "left": 300 },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 100, "left": 300 },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": 150, "left": 300 },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": 200, "left": 300 },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 50, "left": 200 },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": 100, "left": 200 },
+    { "type": "wokwi-vcc", "id": "vcc3", "top": 150, "left": 200 },
+    { "type": "wokwi-vcc", "id": "vcc4", "top": 200, "left": 200 }
   ],
-  "components": [
-    {
-      "type": "wokwi-analog-sensor",
-      "id": "phSensor",
-      "top": -200,
-      "left": -100,
-      "attrs": {
-        "label": "Sensor de pH",
-        "unit": "pH"
-      }
-    },
-    {
-      "type": "wokwi-analog-sensor",
-      "id": "temperaturaSensor",
-      "top": -150,
-      "left": -100,
-      "attrs": {
-        "label": "Sensor de Temperatura",
-        "unit": "°C"
-      }
-    },
-    {
-      "type": "wokwi-analog-sensor",
-      "id": "turbidezSensor",
-      "top": -100,
-      "left": -100,
-      "attrs": {
-        "label": "Sensor de Turbidez",
-        "unit": "NTU"
-      }
-    },
-    {
-      "type": "wokwi-analog-sensor",
-      "id": "oxigenioSensor",
-      "top": -50,
-      "left": -100,
-      "attrs": {
-        "label": "Sensor de Oxigênio Dissolvido",
-        "unit": "mg/L"
-      }
-    }
+  "connections": [
+    [ "esp32:32", "res1:1" ],
+    [ "res1:2", "gnd1:1" ],
+    [ "vcc1:1", "res1:2" ],
+
+    [ "esp32:33", "res2:1" ],
+    [ "res2:2", "gnd2:1" ],
+    [ "vcc2:1", "res2:2" ],
+
+    [ "esp32:34", "res3:1" ],
+    [ "res3:2", "gnd3:1" ],
+    [ "vcc3:1", "res3:2" ],
+
+    [ "esp32:35", "res4:1" ],
+    [ "res4:2", "gnd4:1" ],
+    [ "vcc4:1", "res4:2" ],
+
+    [ "esp32:GND.1", "gnd1:1" ],
+    [ "esp32:GND.1", "gnd2:1" ],
+    [ "esp32:GND.1", "gnd3:1" ],
+    [ "esp32:GND.1", "gnd4:1" ]
   ]
 }
